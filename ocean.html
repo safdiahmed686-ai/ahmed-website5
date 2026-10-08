@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>موقع أحمد الشخصي</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0b0f19;
+            color: white;
+            font-family: Arial, Tahoma, sans-serif;
+        }
+
+        /* القائمة */
+
+        nav {
+            width: 92%;
+            max-width: 700px;
+            margin: 15px auto;
+            padding: 12px;
+            background: #151b29;
+            border: 1px solid #252d40;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: sticky;
+            top: 10px;
+            z-index: 10;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        nav a:hover {
+            color: #8b6cff;
+        }
+
+        /* الرئيسية */
+
+        .hero {
+            width: 92%;
+            max-width: 700px;
+            margin: 15px auto;
+            padding: 30px 15px;
+            background: linear-gradient(145deg, #151b29, #101522);
+            border: 1px solid #252d40;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .profile {
+            width: 125px;
+            height: 125px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #7c5cff;
+            box-shadow: 0 0 25px #7c5cff55;
+        }
+
+        .hero h1 {
+            margin-top: 15px;
+            font-size: 28px;
+        }
+
+        .hero p {
+            margin-top: 7px;
+            color: #aeb7c8;
+            font-size: 14px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 10px 22px;
+            background: #7c5cff;
+            color: white;
+            text-decoration: none;
+            border-radius: 9px;
+        }
+
+        /* الأقسام */
+
+        section {
+            width: 92%;
+            max-width: 700px;
+            margin: 15px auto;
+        }
+
+        .title {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        /* عني */
+
+        .about {
+            background: #151b29;
+            border: 1px solid #252d40;
+            border-radius: 14px;
+            padding: 18px;
+        }
+
+        .about p {
+            color: #aeb7c8;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        /* المهارات */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .card {
+            background: #151b29;
+            border: 1px solid #252d40;
+            border-radius: 13px;
+            padding: 18px 8px;
+            text-align: center;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: #7c5cff;
+        }
+
+        .icon {
+            font-size: 27px;
+            margin-bottom: 8px;
+        }
+
+        .card h3 {
+            font-size: 14px;
+        }
+
+        .card p {
+            color: #8f9aad;
+            font-size: 11px;
+            margin-top: 5px;
+        }
+
+        /* الإحصائيات */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .stat {
+            background: #151b29;
+            border: 1px solid #252d40;
+            padding: 15px 5px;
+            border-radius: 13px;
+            text-align: center;
+        }
+
+        .stat h2 {
+            color: #7c5cff;
+        }
+
+        .stat p {
+            color: #999;
+            font-size: 11px;
+            margin-top: 4px;
+        }
+
+        /* الأعمال */
+
+        .work {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .project {
+            background: #151b29;
+            border: 1px solid #252d40;
+            padding: 18px;
+            border-radius: 13px;
+        }
+
+        .project h3 {
+            font-size: 15px;
+            margin-bottom: 7px;
+        }
+
+        .project p {
+            color: #999;
+            font-size: 12px;
+        }
+
+        /* التواصل */
+
+        .contact {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .contact a {
+            padding: 13px;
+            background: #151b29;
+            border: 1px solid #252d40;
+            border-radius: 11px;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .contact a:hover {
+            border-color: #7c5cff;
+        }
+
+        /* زر واتساب */
+
+        .whatsapp {
+            display: block;
+            margin-top: 10px;
+            padding: 13px;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 11px;
+            font-weight: bold;
+        }
+
+        /* الفوتر */
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #687386;
+            font-size: 12px;
+        }
+
+        @media(max-width:500px) {
+
+            nav {
+                gap: 12px;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- القائمة -->
+
+    <nav>
+        <a href="#home">الرئيسية</a>
+        <a href="#about">عني</a>
+        <a href="#skills">مهاراتي</a>
+        <a href="#work">أعمالي</a>
+        <a href="#contact">تواصل</a>
+    </nav>
+
+
+    <!-- الرئيسية -->
+
+    <div class="hero" id="home">
+
+        <img src="photo.jpg" class="profile" alt="صورتي">
+
+        <h1>أحمد 👋</h1>
+
+        <p>مطور مواقع ومهتم بالتكنولوجيا</p>
+
+        <a href="#about" class="button">تعرف عليّ</a>
+
+    </div>
+
+
+    <!-- عني -->
+
+    <section id="about">
+
+        <h2 class="title">👤 من أنا؟</h2>
+
+        <div class="about">
+
+            <p>
+                مرحباً بك في موقعي الشخصي.
+                أنا أحمد، أحب البرمجة وتصميم المواقع
+                وأعمل على تطوير مهاراتي وتعلم أشياء جديدة.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- المهارات -->
+
+    <section id="skills">
+
+        <h2 class="title">🛠️ مهاراتي</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">💻</div>
+                <h3>HTML</h3>
+                <p>تطوير المواقع</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🎨</div>
+                <h3>CSS</h3>
+                <p>تصميم المواقع</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">⚡</div>
+                <h3>JavaScript</h3>
+                <p>التفاعل</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📱</div>
+                <h3>Responsive</h3>
+                <p>مواقع للموبايل</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- الإحصائيات -->
+
+    <section>
+
+        <h2 class="title">📊 معلومات</h2>
+
+        <div class="stats">
+
+            <div class="stat">
+                <h2>10+</h2>
+                <p>مشاريع</p>
+            </div>
+
+            <div class="stat">
+                <h2>3</h2>
+                <p>مهارات</p>
+            </div>
+
+            <div class="stat">
+                <h2>100%</h2>
+                <p>طموح</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- الأعمال -->
+
+    <section id="work">
+
+        <h2 class="title">🚀 أعمالي</h2>
+
+        <div class="work">
+
+            <div class="project">
+                <h3>🌐 موقع شخصي</h3>
+                <p>تصميم موقع شخصي بسيط ومرتب.</p>
+            </div>
+
+            <div class="project">
+                <h3>🛒 متجر إلكتروني</h3>
+                <p>واجهة متجر إلكتروني حديثة.</p>
+            </div>
+
+            <div class="project">
+                <h3>📱 تطبيق</h3>
+                <p>فكرة تطبيق للموبايل.</p>
+            </div>
+
+            <div class="project">
+                <h3>🎮 مشروع ألعاب</h3>
+                <p>مشروع ترفيهي بسيط.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- التواصل -->
+
+    <section id="contact">
+
+        <h2 class="title">📞 تواصل معي</h2>
+
+        <div class="contact">
+
+            <a href="https://www.instagram.com/ahmed.2006.19?stkn=MTN2djFsaHlpNDM0eg==" target="_blank">
+                📷 Instagram
+            </a>
+
+            <a href="https://www.tiktok.com/@ahmed2006194" target="_blank">
+                🎵 TikTok
+            </a>
+
+            <a href="https://www.facebook.com/share/1Ds4PnpRtZ/" target="_blank">
+                📘 Facebook
+            </a>
+
+            <a href="mailto:safdiahmed686@gmail.com">
+                ✉️ Email
+            </a>
+
+        </div>
+
+        <a class="whatsapp" href="https://wa.me/9720592570356" target="_blank">
+            💬 تواصل معي عبر واتساب
+        </a>
+
+    </section>
+
+
+    <footer>
+
+        © 2026 أحمد — جميع الحقوق محفوظة
+
+    </footer>
+
+</body>
+
+</html>
